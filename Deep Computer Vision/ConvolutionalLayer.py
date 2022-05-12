@@ -146,6 +146,13 @@ for img, label in raw_train.take(2):
 for img, label in train.take(2):
     print("New shape:", img.shape)
 
+'''
+---> Picking a Pretrained Model
+
+The model we are going to use as the convolutional base for our model is the "MobileNet V2 developed at Google".
+This model is trained on 1.4 million images and has 1000 different classes.
+'''
+
 IMG_SHAPE = (IMG_SIZE, IMG_SIZE, 3)
 
 # Create the base model from the pre-trained model MobileNet V2
