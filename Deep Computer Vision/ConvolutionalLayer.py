@@ -16,6 +16,7 @@ plt.imshow(train_images[IMG_INDEX] ,cmap=plt.cm.binary)
 plt.xlabel(class_names[train_labels[IMG_INDEX][0]])
 plt.show()
 
+################################################################################################################
 model = models.Sequential()
 model.add(layers.Conv2D(32, (3, 3), activation='relu', input_shape=(32, 32, 3)))
 model.add(layers.MaxPooling2D((2, 2)))
@@ -32,6 +33,7 @@ model.summary()
 model.compile(optimizer='adam',
               loss=tf.keras.losses.SparseCategoricalCrossentropy(from_logits=True),
               metrics=['accuracy'])
+################################################################################################################
 
 history = model.fit(train_images, train_labels, epochs=4, 
                     validation_data=(test_images, test_labels))
@@ -155,6 +157,7 @@ This model is trained on 1.4 million images and has 1000 different classes.
 
 IMG_SHAPE = (IMG_SIZE, IMG_SIZE, 3)
 
+################################################################################################################
 # Create the base model from the pre-trained model MobileNet V2
 base_model = tf.keras.applications.MobileNetV2(input_shape=IMG_SHAPE,
                                                include_top=False,
@@ -186,6 +189,7 @@ base_learning_rate = 0.0001
 model.compile(optimizer=tf.keras.optimizers.RMSprop(lr=base_learning_rate),
               loss=tf.keras.losses.BinaryCrossentropy(from_logits=True),
               metrics=['accuracy'])
+################################################################################################################
 
 # We can evaluate the model right now to see how it does before training it on our new images
 initial_epochs = 3

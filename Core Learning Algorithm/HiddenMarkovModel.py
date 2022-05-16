@@ -15,11 +15,13 @@ transition_distribution = tfd.Categorical(probs=[[0.5, 0.5], [0.2, 0.8]])  # ref
 # the loc argument represents the mean and the scale is the standard devitation
 observation_distribution = tfd.Normal(loc=[0., 15.], scale=[5., 10.])  # refer to point 5 above
 
+################################################################################################################
 model = tfd.HiddenMarkovModel(
     initial_distribution=initial_distribution,
     transition_distribution=transition_distribution,
     observation_distribution=observation_distribution,
     num_steps=7)
+################################################################################################################
 
 mean = model.mean()
 print(mean)

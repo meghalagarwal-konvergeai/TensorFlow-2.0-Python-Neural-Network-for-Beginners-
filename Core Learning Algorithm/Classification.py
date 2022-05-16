@@ -42,11 +42,13 @@ For classification tasks there are variety of different estimators/models that w
 DNNClassifier (Deep Neural Network)
 LinearClassifier
 '''
-
+################################################################################################################
 # Build a DNN with 2 hidden layers with 30 and 10 hidden nodes each.
 # Two hidden layers of 30 and 10 nodes respectively.
 # The model must choose between 3 classes.
 classifier = tf.estimator.DNNClassifier(feature_columns=my_feature_columns,hidden_units=[30, 10],n_classes=3)
+################################################################################################################
+
 # We include a lambda to avoid creating an inner function previously
 classifier.train(input_fn=lambda: input_fn(train, train_y, training=True),steps=5000)
 
